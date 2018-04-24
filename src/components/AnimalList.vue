@@ -17,7 +17,9 @@
 
         <td>{{ animal.type }}</td>
         <td>{{ animal.name }}</td>
-        <td>{{ animal.dateOfBirth }}</td>
+
+        <td v-if="animal.dateOfBirth != ''">{{ animal.dateOfBirth }}</td>
+        <td v-else> Nepoznat </td>
 
       </tr>
 
@@ -66,6 +68,12 @@ export default {
                   type: 'mammals',
                   name: 'Timmy the Bear',
                   dateOfBirth: '25.08.2005'
+              },
+
+              {
+                  type: 'mammals',
+                  name: 'Timmy the Lion',
+                  dateOfBirth: '',
               },
 
 
