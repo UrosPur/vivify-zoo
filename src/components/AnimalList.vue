@@ -63,6 +63,13 @@
 
         </div>
 
+        <div style="padding-top: 50px">
+
+            <!--<button @click="setInterval(areYouSure(),3000)"> {{ buttonName }}</button>-->
+            <button @click="areYouSure"> {{ buttonName }}</button>
+
+        </div>
+
     </div>
 </template>
 
@@ -74,7 +81,9 @@
             return {
 
 
-                isButtonDisabled:false,
+                isButtonDisabled: false,
+
+                buttonName: 'confirm',
 
                 animals: [
 
@@ -157,10 +166,44 @@
 
                 this.isButtonDisabled = true;
 
-                setTimeout(function (){
+                setTimeout(function () {
                     this.isButtonDisabled = false
 
                 }, 5000)
+            },
+
+            areYouSure() {
+
+                var result = confirm('are You sure?');
+
+                if (result) {
+
+                    this.buttonName = 'Success'
+
+                    setTimeout(() => {
+
+                    this.buttonName = 'confirm'
+
+                    }, 3000)
+
+                } else {
+
+
+                        this.buttonName = 'you must confirm to finish'
+
+                    setTimeout(() => {
+
+                        this.buttonName = 'confirm'
+
+                    }, 3000)
+
+                }
+
+
+                // setTimeout(() => {
+                //
+                // }, 3000)
+
             }
 
 
